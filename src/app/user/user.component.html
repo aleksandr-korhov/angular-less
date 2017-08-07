@@ -1,3 +1,10 @@
 <p>
-  user component works!
+  User {{ id }} component works!<br>
+  Phone {{ queryParams.phone }}<br>
+  Name {{ queryParams.name }}<br>
+</p>
+<p>
+  <button (click)="goHome()">Home</button>
+  <button (click)="goUsers()">Users</button>
+  <button (click)="goPrev()">Prev</button>
 </p>

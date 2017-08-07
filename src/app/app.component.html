@@ -13,6 +13,18 @@
         <li routerLinkActive="active">
             <a routerLink="/users">Пользователи</a>
         </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['user', 1]">Пользователь 1</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['user', 1]" [queryParams]="{'phone': '123', 'name': 'test'}">Пользователь 1 с параметрами</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['user', 2]">Пользователь 2</a>
+        </li>
+        <li routerLinkActive="active">
+            <a [routerLink]="['user', 2]" [queryParams]="{'phone': '321', 'name': 'test2'}">Пользователь 2 с параметрами</a>
+        </li>
     </ul>
 </div>
 <router-outlet></router-outlet>
