@@ -1,5 +1,7 @@
 export class User {
-    fio: string;
-    phone: string;
-    createdAt: Date;
+
+    constructor(public fio: string, public phone: string, public createdAt: Date = new Date()) {
+
+    }
+
 }

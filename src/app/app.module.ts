@@ -11,10 +11,10 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'user/:id', component: UserComponent},
-  {path: '**', component: NotFoundComponent},
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'user/:id', component: UserComponent },
+  { path: '**', component: NotFoundComponent },
   // {path: '**', redirectTo: ''},
 ]
 

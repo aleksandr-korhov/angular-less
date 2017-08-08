@@ -12,13 +12,33 @@ export class HomeComponent implements OnInit {
 
     users: User[];
 
-    fio:string;
-    phone:string;
+    protected fio:string;
+    protected phone:string;
+
+    public sortByDesc: boolean = false;
+
+    protected limit: number = 5;
 
     constructor(private usersDataService: UsersDataService) { }
 
+    addUser() {
+      this.usersDataService.addData(this.fio, this.phone);
+      this.fio = '';
+      this.phone = '';
+    }
+
+    sortByDate() {
+
+      this.users = this.usersDataService.getData('createdAt', this.sortByDesc).slice(0,this.limit);
+
+      this.sortByDesc = !this.sortByDesc;
+
+    }
+
     ngOnInit() {
-        this.users = this.usersDataService.getData().slice(0,5);
+
+        this.sortByDate();
+
     }
 
 }
