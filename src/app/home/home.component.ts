@@ -22,14 +22,19 @@ export class HomeComponent implements OnInit {
     constructor(private usersDataService: UsersDataService) { }
 
     addUser() {
-      this.usersDataService.addData(this.fio, this.phone);
+      let fio:string = this.fio;
+      let phone:string = this.phone;
+
+      if (fio && phone)
+        this.usersDataService.addData(fio, phone);
+
       this.fio = '';
       this.phone = '';
     }
 
     sortByDate() {
 
-      this.users = this.usersDataService.getData('createdAt', this.sortByDesc).slice(0,this.limit);
+      this.users = this.usersDataService.getData('createdAt', this.sortByDesc);//.slice(0,this.limit);
 
       this.sortByDesc = !this.sortByDesc;
 
