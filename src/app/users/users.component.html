@@ -1,3 +1,21 @@
-<p>
-  users component works!
-</p>
+<div class="container">
+    <div class="panel">
+        <button type="button" class="btn btn-large btn-block btn-success" (click)="addUser()">Добавить</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Дата создания</th>
+                    <th>Телефон</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.fio}}</td>
+                    <td>{{user.createdAt | date:"dd/MM/yyyy hh:mm:ss"}}</td>
+                    <td>{{user.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

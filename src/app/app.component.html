@@ -11,20 +11,8 @@
             <li>
                 <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/users">Пользователи</a>
             </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown">Пользователи тест<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a [routerLink]="['user', 1]">Пользователь 1</a></li>
-                    <li>
-                        <a [routerLink]="['user', 1]" 
-                            [queryParams]="{'phone': '123', 'name': 'test'}">Пользователь 1 с параметрами</a>
-                    </li>
-                    <li><a [routerLink]="['user', 2]">Пользователь 2</a></li>
-                    <li>
-                        <a [routerLink]="['user', 2]" 
-                            [queryParams]="{'phone': '321', 'name': 'test2'}">Пользователь 2 с параметрами</a>
-                    </li>
-                </ul>
+            <li>
+                <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/users/form">Создать</a>
             </li>
         </ul>
     </div>

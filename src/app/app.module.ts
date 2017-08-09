@@ -2,21 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 
-import { Routes, RouterModule } from "@angular/router";
+import { RoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'user/:id', component: UserComponent },
-  { path: '**', component: NotFoundComponent },
-  // {path: '**', redirectTo: ''},
-]
 
 @NgModule({
   declarations: [
@@ -29,7 +21,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
