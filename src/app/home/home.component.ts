@@ -1,49 +1,47 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UsersDataService } from "../shared/users-data.service";
 import { User } from "../shared/user";
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css'],
-    providers: [UsersDataService]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  providers: []
 })
 export class HomeComponent implements OnInit {
 
-    users: User[];
+  users: User[];
 
-    protected fio:string;
-    protected phone:string;
+  protected fio: string;
+  protected phone: string;
 
-    public sortByDesc: boolean = false;
+  protected limit: number = 5;
+  public sortByDesc: boolean = true;
 
-    protected limit: number = 5;
+  constructor(private usersDataService: UsersDataService) { }
 
-    constructor(private usersDataService: UsersDataService) { }
+  addUser() {
+    let fio: string = this.fio;
+    let phone: string = this.phone;
 
-    addUser() {
-      let fio:string = this.fio;
-      let phone:string = this.phone;
+    if (fio && phone)
+      this.usersDataService.addUser(fio, phone);
 
-      if (fio && phone)
-        this.usersDataService.addData(fio, phone);
+    this.fio = '';
+    this.phone = '';
+  }
 
-      this.fio = '';
-      this.phone = '';
-    }
+  sortByDate() {
 
-    sortByDate() {
+    this.users = this.usersDataService.getUsers('createdAt', this.sortByDesc).slice(0,this.limit);
 
-      this.users = this.usersDataService.getData('createdAt', this.sortByDesc);//.slice(0,this.limit);
+    this.sortByDesc = !this.sortByDesc;
 
-      this.sortByDesc = !this.sortByDesc;
+  }
 
-    }
-
-    ngOnInit() {
-
-        this.sortByDate();
-
-    }
+  ngOnInit() {
+    this.sortByDate();
+  }
 
 }

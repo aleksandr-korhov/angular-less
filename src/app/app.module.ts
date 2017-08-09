@@ -10,6 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 
+import { UsersDataService } from './shared/users-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import { UserComponent } from './user/user.component';
     FormsModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [UsersDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,10 +1,10 @@
-// import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from "./user";
 
-// @Injectable()
+@Injectable()
 export class UsersDataService {
 
-	private data: User[] = [
+  private users: User[] = [
     new User('Люк Скайвокер', '1234567890', new Date("2015-01-01 22:30")),
     new User('Бэтмэн', '1234567890', new Date("2016-05-01 10:30")),
     new User('Бильбо Бэгинс', '1234567890', new Date("2016-12-31 23:30")),
@@ -15,7 +15,7 @@ export class UsersDataService {
 
   protected sortField: string;
 
-	getData(sortField: string = 'createdAt', sortByDesc: boolean = false) {
+  getUsers(sortField: string = 'createdAt', sortByDesc: boolean = false) {
 
     if (sortByDesc) {
       this.sortByDesc(sortField);
@@ -23,15 +23,29 @@ export class UsersDataService {
       this.sortBy(sortField);
     }
 
-		return this.data;
-	}
+  	return this.users;
+  }
 
-	addData(fio: string, phone: string) {
-    this.data.push(new User(fio, phone));
+  // getUsers(): Promise<User[]> {
+  //   return Promise.resolve(this.data);
+  // }
+
+  getUser(id: number): User {
+    return this.getUsers().find((user: User) => user.id == id);
+  }
+
+  // getUser(id: number): Promise<User> {
+  //   return this.getUsers()
+  //     .then(users => users.find(user => user.id === id));
+  // }
+
+
+  addUser(fio: string, phone: string) {
+    this.users.push(new User(fio, phone));
   }
 
   sortBy(fieldName: string) {
-    this.data.sort(function (a, b) {
+    this.users.sort(function (a, b) {
       let val1 = a[fieldName];
       let val2 = b[fieldName];
 
@@ -47,6 +61,6 @@ export class UsersDataService {
 
   sortByDesc(sortField) {
     this.sortBy(sortField);
-    this.data.reverse();
+    this.users.reverse();
   }
 }

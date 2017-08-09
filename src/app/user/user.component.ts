@@ -1,42 +1,50 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { Subscription } from "rxjs/Subscription";
+import { User } from '../shared/user';
+import { UsersDataService } from '../shared/users-data.service';
+
+import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit, OnDestroy {
+export class UserComponent implements OnInit {
 
-  id:number;
-  queryParams:any;
+  user: User;
 
-  private routeSubscription: Subscription;
-  private querySubscription: Subscription;
+  newFio: string;
+  newPhone: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
-    this.routeSubscription = activatedRoute.params.subscribe(params=>this.id=params['id']);
-    this.querySubscription = activatedRoute.queryParams.subscribe(params=>this.queryParams=params);
+  constructor(
+    private usersDataService: UsersDataService,
+    private activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
-    console.log(this);
+  saveUser() {
+    if (this.user) {
+      this.user.fio = this.newFio;
+      this.user.phone = this.newPhone;
+    } else {
+      if (this.newFio && this.newPhone)
+        this.usersDataService.addUser(this.newFio, this.newPhone);
+    }
+
+    this.location.back();
   }
 
-  goHome() {
-    this.router.navigate(['']);
-  }
+  ngOnInit(): void {
+    this.user = this.usersDataService.getUser(this.route.snapshot.params['id']);
 
-  goUsers() {
-    this.router.navigate(['users']);
-  }
-
-  goPrev() {}
-
-  ngOnInit() {}
-
-  ngOnDestroy() {
-    this.routeSubscription.unsubscribe();
-    this.querySubscription.unsubscribe();
+    if (this.user) {
+      this.newFio = this.user.fio;
+      this.newPhone = this.user.phone;
+    }
   }
 }

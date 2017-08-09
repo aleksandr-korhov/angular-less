@@ -1,30 +1,14 @@
 <div class="panel">
-  <div class="form-inline">
-    <div class="form-group">
-      <div class="col-md-8">
-        <input class="form-control" [(ngModel)]="fio" placeholder="ФИО" />
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-6">
-        <input class="form-control" [(ngModel)]="phone" placeholder="Телефон" />
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-2 col-md-8">
-        <button class="btn btn-default" (click)="addUser()">Добавить</button>
-      </div>
-    </div>
-  </div>
   <table class="table table-striped">
     <thead>
       <tr>
         <th>ФИО</th>
-         <th (click)="sortByDate()" [ngStyle]="{cursor: 'pointer'}">
+        <th (click)="sortByDate()" [ngStyle]="{cursor: 'pointer'}">
           Дата создания
           <span class="glyphicon" [ngClass]="{'glyphicon-sort-by-attributes': sortByDesc, 'glyphicon-sort-by-attributes-alt': !sortByDesc}"></span>
         </th>
         <th>Телефон</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +16,11 @@
         <td>{{user.fio}}</td>
         <td>{{user.createdAt | date:"dd/MM/yyyy HH:mm:ss"}}</td>
         <td>{{user.phone}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" routerLink="users/form/{{user.id}}">
+            Редактировать
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

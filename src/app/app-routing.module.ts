@@ -7,19 +7,21 @@ import { UserComponent } from "./user/user.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'users', component: UsersComponent },
-    { path: 'users/form', component: UserComponent },
-    { path: '**', component: NotFoundComponent },
-    // {path: '**', redirectTo: ''},
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'users/form/:id', component: UserComponent },
+  { path: 'users/form', component: UserComponent },
+  { path: 'users', component: UsersComponent },
+  { path: '**', component: NotFoundComponent },
+  // {path: '**', redirectTo: ''},
+  // "mediamarkt/bunny-laravel-multiplexer-client": "5.x-dev",
 ]
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes),
-    ],
-    exports: [
-        RouterModule
-    ]
+  imports: [
+    RouterModule.forRoot(appRoutes),
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class RoutingModule { }
