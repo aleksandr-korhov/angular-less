@@ -26,19 +26,9 @@ export class UsersDataService {
   	return this.users;
   }
 
-  // getUsers(): Promise<User[]> {
-  //   return Promise.resolve(this.data);
-  // }
-
   getUser(id: number): User {
     return this.getUsers().find((user: User) => user.id == id);
   }
-
-  // getUser(id: number): Promise<User> {
-  //   return this.getUsers()
-  //     .then(users => users.find(user => user.id === id));
-  // }
-
 
   addUser(fio: string, phone: string) {
     this.users.push(new User(fio, phone));
