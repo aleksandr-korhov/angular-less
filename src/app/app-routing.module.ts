@@ -12,8 +12,6 @@ const appRoutes: Routes = [
   { path: 'users/form', component: UserComponent },
   { path: 'users', component: UsersComponent },
   { path: '**', component: NotFoundComponent },
-  // {path: '**', redirectTo: ''},
-  // "mediamarkt/bunny-laravel-multiplexer-client": "5.x-dev",
 ]
 
 @NgModule({
