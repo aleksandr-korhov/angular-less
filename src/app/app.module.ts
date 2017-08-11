@@ -11,6 +11,7 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
 
 import { UsersDataService } from './shared/users-data.service';
+import { CustomDatePipe } from './custom-date.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsersDataService } from './shared/users-data.service';
     HomeComponent,
     NotFoundComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    CustomDatePipe
   ],
   imports: [
     BrowserModule,
