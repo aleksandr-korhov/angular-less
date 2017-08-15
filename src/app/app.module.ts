@@ -12,22 +12,29 @@ import { UserComponent } from './user/user.component';
 
 import { UsersDataService } from './shared/users-data.service';
 import { CustomDatePipe } from './custom-date.pipe';
+import { HighlightDirective } from './highlight.directive';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AdminService } from "./shared/admin.service";
+import { FormComponent } from './users-new/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     HomeComponent,
-    NotFoundComponent,
     UsersComponent,
     UserComponent,
-    CustomDatePipe
+    NotFoundComponent,
+    HighlightDirective,
+    CustomDatePipe,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RoutingModule
   ],
-  providers: [UsersDataService],
+  providers: [UsersDataService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
