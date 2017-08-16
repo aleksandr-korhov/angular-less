@@ -7,7 +7,7 @@ import { UsersComponent } from "./users/users.component";
 // import { NotFoundComponent } from "./not-found/not-found.component";
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'users-new', pathMatch: 'full' },
+    { path: '', redirectTo: 'users', pathMatch: 'full' },
     { path: 'users', component: UsersComponent },
     // { path: 'home', component: HomeComponent },
     // { path: 'users', component: UsersComponent },
