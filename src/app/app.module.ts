@@ -5,17 +5,21 @@ import { FormsModule } from "@angular/forms";
 import { RoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { UsersComponent } from './users/users.component';
-import { UserComponent } from './user/user.component';
-
-import { UsersDataService } from './shared/users-data.service';
-import { CustomDatePipe } from './custom-date.pipe';
-import { HighlightDirective } from './highlight.directive';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminService } from "./shared/admin.service";
-import { FormComponent } from './users-new/form/form.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './user/user.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { UsersDataService } from './shared/users-data.service';
+
+import { CustomDatePipe } from './custom-date.pipe';
+
+import { HighlightDirective } from './highlight.directive';
+
+import { UsersModule } from './users-new/users.module';
+
 
 @NgModule({
   declarations: [
@@ -27,12 +31,12 @@ import { FormComponent } from './users-new/form/form.component';
     NotFoundComponent,
     HighlightDirective,
     CustomDatePipe,
-    FormComponent,
   ],
   imports: [
     BrowserModule,
+    RoutingModule,
     FormsModule,
-    RoutingModule
+    UsersModule
   ],
   providers: [UsersDataService, AdminService],
   bootstrap: [AppComponent]
