@@ -3,18 +3,16 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { HomeComponent } from "./home/home.component";
 import { UsersComponent } from "./users/users.component";
-import { UserComponent } from "./user/user.component";
-import { NotFoundComponent } from "./not-found/not-found.component";
-import { UsersNewComponent } from "./users-new/users-new.component";
+// import { UserComponent } from "./user/user.component";
+// import { NotFoundComponent } from "./not-found/not-found.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'users-new', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
     { path: 'users', component: UsersComponent },
-    { path: 'users-new', component: UsersNewComponent },
+    // { path: 'home', component: HomeComponent },
+    // { path: 'users', component: UsersComponent },
     // { path: 'users/form/:id', component: UserComponent },
-    // { path: 'users/form', component: UserComponent },
-    { path: '**', component: NotFoundComponent },
+    // { path: '**', component: NotFoundComponent },
 ]
 
 @NgModule({
@@ -25,4 +23,4 @@ const appRoutes: Routes = [
         RouterModule
     ]
 })
-export class RoutingModule { }
+export class AppRoutingModule { }
