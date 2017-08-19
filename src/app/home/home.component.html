@@ -1,28 +1,31 @@
-<div class="panel">
+<div class="container-fluid">
+  <div class="panel">
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ФИО</th>
-                <th (click)="sortByDate()" [ngStyle]="{cursor: 'pointer'}">
-                    Дата создания
-                    <span class="glyphicon" [ngClass]="{'glyphicon-sort-by-attributes': sortByDesc, 'glyphicon-sort-by-attributes-alt': !sortByDesc}"></span>
-                </th>
-                <th>Телефон</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.fio}}</td>
-                <td>{{user.createdAt | customDate:"yyyy/MM/dd HH:mm"}}</td>
-                <td>{{user.phone}}</td>
-                <td>
-                    <button type="button" class="btn btn-warning" routerLink="/users/form/{{user.id}}">
+      <thead>
+      <tr>
+        <th>ФИО</th>
+        <th (click)="sortByDate()" [ngStyle]="{cursor: 'pointer'}">
+          Дата создания
+          <span class="glyphicon"
+                [ngClass]="{'glyphicon-sort-by-attributes': sortByDesc, 'glyphicon-sort-by-attributes-alt': !sortByDesc}"></span>
+        </th>
+        <th>Телефон</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.fio}}</td>
+        <td>{{user.createdAt | date:"yyyy/MM/dd HH:mm"}}</td>
+        <td>{{user.phone}}</td>
+        <td>
+          <button type="button" class="btn btn-warning"><!-- routerLink="/users/form/{{user.id}}">-->
             Редактировать
           </button>
-                </td>
-            </tr>
-        </tbody>
+        </td>
+      </tr>
+      </tbody>
     </table>
+  </div>
 </div>

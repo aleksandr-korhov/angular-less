@@ -1,20 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Users } from "./users-mock";
-import { User } from "./user";
+import {Injectable} from '@angular/core';
+import {User} from './user';
 
 @Injectable()
 export class UsersDataService {
 
   private users: User[] = [
-    new User('Люк Скайвокер', '1234567890', new Date("2015-01-01 22:30")),
-    new User('Бэтмэн', '1234567890', new Date("2016-05-01 10:30")),
-    new User('Бильбо Бэгинс', '1234567890', new Date("2016-12-31 23:30")),
-    new User('Дарт Вэйдер', '1234567890', new Date("2017-02-03 12:00")),
+    new User('Люк Скайвокер', '1234567890', new Date('2015-01-01 22:30')),
+    new User('Бэтмэн', '1234567890', new Date('2016-05-01 10:30')),
+    new User('Бильбо Бэгинс', '1234567890', new Date('2016-12-31 23:30')),
+    new User('Дарт Вэйдер', '1234567890', new Date('2017-02-03 12:00')),
     new User('Звездный Лорд', '1234567890'),
-    new User('Мастер Йода', '1234567890', new Date("2015-02-01 20:30")),
+    new User('Мастер Йода', '1234567890', new Date('2015-02-01 20:30')),
   ];
-
-  protected sortField: string;
 
   getUsers(sortField: string = 'createdAt', sortByDesc: boolean = false) {
 
@@ -24,11 +21,11 @@ export class UsersDataService {
       this.sortBy(sortField);
     }
 
-  	return this.users;
+    return this.users;
   }
 
   getUser(id: number): User {
-    return this.getUsers().find((user: User) => user.id == id);
+    return this.getUsers().find((user: User) => user.id === id);
   }
 
   addUser(fio: string, phone: string) {
@@ -37,11 +34,11 @@ export class UsersDataService {
 
   sortBy(fieldName: string) {
     this.users.sort(function (a, b) {
-      let val1 = a[fieldName];
-      let val2 = b[fieldName];
+      const val1 = a[fieldName];
+      const val2 = b[fieldName];
 
       if (val1 < val2) {
-        return -1
+        return -1;
       } else if (val1 > val2) {
         return 1;
       }

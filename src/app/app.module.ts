@@ -1,44 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { UsersDataService } from './shared/users-data.service';
-import { CustomDatePipe } from './custom-date.pipe';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 /* App Root */
-import { AppComponent } from './app.component';
-import { TitleComponent } from './title/title.component';
-import { AdminService } from "./shared/admin.service";
-import { HighlightDirective } from './highlight.directive';
+import {AppComponent} from './app.component';
+import {TitleComponent} from './title/title.component';
+import {AdminService} from './shared/admin.service';
+import {HighlightDirective} from './highlight.directive';
 
 /* Feature Modules */
-import { UsersModule } from './users/users.module';
+import {HomeModule} from './home/home.module';
 
 /* Routing Module */
-import { AppRoutingModule } from "./app-routing.module";
+import {AppRoutingModule} from './app-routing.module';
+
+/* App Services */
+// import {UserService} from './shared/user.service';
 
 
 @NgModule({
-    imports: [
-        BrowserModule,
-        UsersModule,
-        AppRoutingModule,
-        // FormsModule,
-    ],
-    declarations: [
-        AppComponent,
-        TitleComponent,
-        HighlightDirective,
-        // HomeComponent,
-        // UserComponent,
-        // NotFoundComponent,
-        // CustomDatePipe,
-    ],
-    providers: [UsersDataService, AdminService],
-    bootstrap: [AppComponent]
+  imports: [
+    BrowserModule,
+    HomeModule,
+    AppRoutingModule,
+  ],
+  providers: [
+    AdminService,
+    // UserService
+  ],
+  declarations: [
+    AppComponent,
+    TitleComponent,
+    HighlightDirective
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
