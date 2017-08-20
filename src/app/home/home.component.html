@@ -20,7 +20,7 @@
         <td>{{user.createdAt | date:"yyyy/MM/dd HH:mm"}}</td>
         <td>{{user.phone}}</td>
         <td>
-          <button type="button" class="btn btn-warning"><!-- routerLink="/users/form/{{user.id}}">-->
+          <button type="button" class="btn btn-warning" routerLink="/users/{{user.id}}">
             Редактировать
           </button>
         </td>

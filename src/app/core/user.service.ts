@@ -17,11 +17,11 @@ export class User {
 }
 
 const USERS: User[] = [
-  new User('Иван Сусанин', '1234567890', new Date("2015-01-01 22:30")),
-  new User('Тарас Бульба', '1234567890', new Date("2015-02-01 20:30")),
-  new User('Вий', '1234567890', new Date("2016-05-01 10:30")),
-  new User('Иван Васильевич', '1234567890', new Date("2016-12-31 23:30")),
-  new User('Петька', '1234567890', new Date("2017-02-03 12:00")),
+  new User('Иван Сусанин', '1234567890', new Date('2015-01-01 22:30')),
+  new User('Тарас Бульба', '1234567890', new Date('2015-02-01 20:30')),
+  new User('Вий', '1234567890', new Date('2016-05-01 10:30')),
+  new User('Иван Васильевич', '1234567890', new Date('2016-12-31 23:30')),
+  new User('Петька', '1234567890', new Date('2017-02-03 12:00')),
   new User('Анка-пулеметчица', '1234567890'),
 ];
 
@@ -45,6 +45,16 @@ export class UserService {
     return this.users;
   }
 
+  getUser(id: number | string): User {
+    // return this.getUsers()
+    //     .then(users => users.find(user => user.id === +id));
+    return this.getUsers().find(user => user.getId() === +id);
+  }
+
+  addUser(fio: string, phone: string) {
+    this.users.push(new User(fio, phone));
+  }
+
   sortBy(fieldName: string) {
     this.users.sort(function (a, b) {
       const val1: any = a[fieldName];
@@ -64,11 +74,4 @@ export class UserService {
     this.sortBy(sortField);
     this.users.reverse();
   }
-
-  getUser(id: number | string): User {
-    // return this.getUsers()
-    //     .then(users => users.find(user => user.id === +id));
-    return this.getUsers().find(user => user.getId() === +id);
-  }
-
 }

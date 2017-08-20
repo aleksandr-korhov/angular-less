@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import { User } from '../shared/user';
-import { UsersDataService } from '../shared/users-data.service';
+import {UserService, User} from '../core/user.service';
 
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -12,33 +11,31 @@ import { Location } from '@angular/common';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+  public user: User;
+  public newFio: string;
+  public newPhone: string;
 
-  user: User;
-
-  newFio: string;
-  newPhone: string;
-
-  constructor(
-    private usersDataService: UsersDataService,
-    private activatedRoute: ActivatedRoute,
-    private route: ActivatedRoute,
-    private location: Location
-  ) { }
+  constructor(private userService: UserService,
+              private activatedRoute: ActivatedRoute,
+              private route: ActivatedRoute,
+              private location: Location) {
+  }
 
   saveUser() {
     if (this.user) {
       this.user.fio = this.newFio;
       this.user.phone = this.newPhone;
     } else {
-      if (this.newFio && this.newPhone)
-        this.usersDataService.addUser(this.newFio, this.newPhone);
+      if (this.newFio && this.newPhone) {
+        this.userService.addUser(this.newFio, this.newPhone);
+      }
     }
 
     this.location.back();
   }
 
   ngOnInit(): void {
-    this.user = this.usersDataService.getUser(this.route.snapshot.params['id']);
+    this.user = this.userService.getUser(this.route.snapshot.params['id']);
 
     if (this.user) {
       this.newFio = this.user.fio;
