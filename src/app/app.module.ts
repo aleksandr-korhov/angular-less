@@ -3,6 +3,9 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {NotFoundComponent} from './not-found/not-found.component';
 
+import {TestComponent} from './test/test.component';
+import {TestChildComponent} from './test/test-child.component';
+
 /* App Root */
 import {AppComponent} from './app.component';
 
@@ -20,7 +23,7 @@ import {AppRoutingModule} from './app-routing.module';
     CoreModule.forRoot({adminName: 'Alexandr'}),
     AppRoutingModule,
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent, TestChildComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
