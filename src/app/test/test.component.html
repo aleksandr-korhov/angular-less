@@ -1,0 +1,7 @@
+<h3>{{title}}</h3>
+<div>Counter: {{counter}}</div>
+<button class="btn btn-success" [disabled]="isDisabled">{{isDisabled ? 'Disabled':'Enabled'}}</button>
+<br>
+<button class="btn btn-success" (click)="toogleButton()">Toogle Button</button>
+<br>
+<button class="btn btn-success" (click)="addCount()">Increment</button>

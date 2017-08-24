@@ -1,14 +1,27 @@
 import {Component, ViewChild} from '@angular/core';
 
-import {TestChildComponent} from './test-child.component';
-
 @Component({
-  selector: 'test',
-  template: `
-    <test-child>
-      <h3 #testHeader>{{ name }} world!!!</h3>
-    </test-child>`
+  // selector: 'test',
+  templateUrl: './test.component.html'
 })
 export class TestComponent {
-  name = 'Hello';
+  title = 'Test component';
+  isDisabled = false;
+  counter = 0;
+
+  toogleButton() {
+    this.isDisabled = !this.isDisabled;
+  }
+
+  show() {
+    this.isDisabled = false;
+  }
+
+  hide() {
+    this.isDisabled = true;
+  }
+
+  addCount() {
+    this.counter++;
+  }
 }
