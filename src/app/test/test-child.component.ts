@@ -1,16 +1,21 @@
-import {Component, ContentChild} from '@angular/core';
+import {Component, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'test-child',
-  template: `
-    <ng-content></ng-content>
-    <button (click)="change()">Изменить</button>`
+  inputs: ['data'],
+  outputs: ['deleteRequest'],
+  templateUrl: './test-child.component.html',
 })
 export class TestChildComponent {
-  @ContentChild('testHeader') content: any;
+  data: string;
+
+  hero = {
+    name: 'Test hero'
+  };
+
+  deleteRequest = new EventEmitter<string>();
 
   change() {
-    console.log(this.content);
-    this.content.nativeElement.textContent = 'Bye!';
+    this.deleteRequest.emit('change hero');
   }
 }

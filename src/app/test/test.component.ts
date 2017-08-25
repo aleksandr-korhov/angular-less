@@ -6,8 +6,19 @@ import {Component, ViewChild} from '@angular/core';
 })
 export class TestComponent {
   title = 'Test component';
+  imgUrl = 'https://www.primefaces.org/primeng/assets/showcase/images/logo.png';
+  imgAlt = 'Test img';
   isDisabled = false;
+  isSpecial = false;
   counter = 0;
+  btnClass = 'btn-danger';
+  parentData = 'Hello from parent';
+  evilTitle = 'Template <script>alert("evil never sleeps")</script>Syntax';
+  actionName = 'Test';
+
+  currentHero = {
+    name: 'test hero'
+  };
 
   toogleButton() {
     this.isDisabled = !this.isDisabled;
@@ -23,5 +34,18 @@ export class TestComponent {
 
   addCount() {
     this.counter++;
+  }
+
+  onSave(el) {
+    console.log(el);
+    console.log(event);
+  }
+
+  onInput(ev) {
+    console.log(ev);
+  }
+
+  onDelete() {
+    console.log(event);
   }
 }
