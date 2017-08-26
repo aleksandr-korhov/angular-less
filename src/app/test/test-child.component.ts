@@ -1,21 +1,28 @@
-import {Component, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'test-child',
-  inputs: ['data'],
-  outputs: ['deleteRequest'],
-  templateUrl: './test-child.component.html',
+	selector: 'test-child',
+	outputs: ['changeRequest:onChange'],
+	templateUrl: './test-child.component.html',
 })
 export class TestChildComponent {
-  data: string;
+	@Input() data: string;
+	@Input() name: number;
 
-  hero = {
-    name: 'Test hero'
-  };
+	hero2 = {
+		name: 'Shuric'
+	};
 
-  deleteRequest = new EventEmitter<string>();
+	hero = {
+		name: null
+	};
 
-  change() {
-    this.deleteRequest.emit('change hero');
-  }
+	date: Date = new Date();
+
+	// @Output('onChange') changeRequest = new EventEmitter();
+	@Output('onChange') changeRequest = new EventEmitter();
+
+	change() {
+		this.changeRequest.emit('Shuric');
+	}
 }

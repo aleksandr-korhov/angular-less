@@ -1,7 +1,19 @@
 <ng-content></ng-content>
 
 <div>
-  Parent data: {{ data }}
+  Data: {{ data }}
 </div>
 
-<button (click)="change()">Изменить</button>
+<div>
+  Name: {{ name | uppercase }}
+</div>
+
+<div>{{date | date: 'shortDate'}}</div>
+
+<div>The hero name is {{hero2 | json}}</div>
+
+<div>The hero name is {{hero!.name}}</div>
+
+<button (click)="change()">Change</button>
+
+
