@@ -1,2 +1,9 @@
-<!--<test-child [data]="parentData" [name]="parentName" (changeRequest)="changeName()" clickable></test-child>-->
-<test-child [data]="parentData" [name]="parentName" (onChange)="changeName($event)" clickable></test-child>
+<div class="container">
+    <ul>
+        <li *ngFor="let hook of hooks; let i=index">
+            [#{{i}}]: {{hook}}
+        </li>
+    </ul>
+</div>
+
+<!--<test-child [data]="parentData" [name]="parentName" (onChange)="changeName($event)" clickable></test-child>-->

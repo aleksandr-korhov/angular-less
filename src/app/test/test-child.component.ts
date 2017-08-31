@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
 	selector: 'test-child',
-	outputs: ['changeRequest:onChange'],
 	templateUrl: './test-child.component.html',
 })
 export class TestChildComponent {
@@ -19,10 +18,9 @@ export class TestChildComponent {
 
 	date: Date = new Date();
 
-	// @Output('onChange') changeRequest = new EventEmitter();
-	@Output('onChange') changeRequest = new EventEmitter();
+	@Output() onChange = new EventEmitter();
 
 	change() {
-		this.changeRequest.emit('Shuric');
+		this.onChange.emit('Shuric');
 	}
 }
