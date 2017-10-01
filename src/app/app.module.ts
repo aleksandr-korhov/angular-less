@@ -15,12 +15,15 @@ import {CoreModule} from './core/core.module';
 /* Routing Module */
 import {AppRoutingModule} from './app-routing.module';
 
+import {EmojiPickerModule} from 'angular2-emoji-picker';
+
 @NgModule({
   imports: [
     BrowserModule,
     CoreModule.forRoot({adminName: 'Alexandr'}),
     HomeModule,
     AppRoutingModule,
+	EmojiPickerModule.forRoot()
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]

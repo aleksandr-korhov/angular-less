@@ -1,4 +1,4 @@
-<app-title [subtitle]="version"></app-title>
+<!--<app-title [subtitle]="version"></app-title>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -18,4 +18,28 @@
   </div>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>-->
+
+<header>
+	<h1>Angular Emoji Picker</h1>
+</header>
+
+<div class="main">
+	<div class="emoji-content-editable"
+		 (emojiPickerCaretEmitter)="handleCurrentCaret($event)"
+		 (input)="content = $event.target.textContent"
+		 [textContent]="content"
+		 contenteditable="true"></div>
+	<i
+		class="emoji-toggle-button"
+		(click)="toggled = !toggled"
+		[(emojiPickerIf)]="toggled"
+		[emojiPickerPreserveSelection]="false"
+		[emojiPickerDirection]="direction"
+		[emojiPickerAutofocus]="true"
+		(emojiPickerSelect)="handleSelection($event)">😄</i>
+</div>
+
+<footer>
+
+</footer>
