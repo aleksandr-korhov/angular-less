@@ -10,7 +10,7 @@
       "assets": [
         "assets",
         "favicon.ico",
-	    { "glob": "sheet_apple_32.png", "input": "../node_modules/angular2-emoji-picker/sheets/", "output": "./" }
+	    { "glob": "sheet_apple_32.png", "input": "../node_modules/angular2-emoji-picker/lib-dist/sheets/", "output": "./" }
       ],
       "index": "index.html",
       "main": "main.ts",
